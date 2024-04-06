@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Eliminar Template</h1>
+<div mat-dialog-content>
+    ¿Desea Eliminar el template "{{dataTemplate.name}}"?
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>No, volver</button>
+    <button mat-button (click)="delete()">Si, Eliminar</button>
+</div>

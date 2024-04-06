@@ -15,12 +15,19 @@ import {MatGridListModule} from '@angular/material/grid-list'
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogAddEditComponent } from './Modals/dialog-add-edit/dialog-add-edit.component';
+import { DialogDeleteComponent } from './Modals/dialog-delete/dialog-delete.component';
+import { DialogHTMLComponent } from './Modals/dialog-html/dialog-html.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogAddEditComponent,
+    DialogDeleteComponent,
+    DialogHTMLComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatDialogModule,
     MatMomentDateModule,
-    MatGridListModule
+    MatGridListModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

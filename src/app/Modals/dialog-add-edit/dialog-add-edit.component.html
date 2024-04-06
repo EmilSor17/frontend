@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>{{tituloAccion}} Template</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formTemplate">
+        <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Contenido</mat-label>
+                    <textarea matInput formControlName="content" autocomplete="off"></textarea>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cerrar</button>
+    <button mat-button (click)="addEditTemplate()" [disabled]="formTemplate.invalid">{{botonAccion}}</button>
+
+</div>

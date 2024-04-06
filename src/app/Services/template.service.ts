@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { PDF } from '../DTOs/pdfDTO';
 import { TemplateDTO } from '../DTOs/templateDTO';
+import { Template } from '../Interfaces/template';
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,23 @@ export class TemplateService {
 
   constructor(private http:HttpClient) { }
 
-  getTemplates():Observable<TemplateDTO>{
-    return this.http.get<TemplateDTO>(`${this.endpoint}`)
+  getTemplates(): Observable<Template[]> {
+    return this.http.get<Template[]>(`${this.endpoint}Template`);
   }
   createTemplate(template:TemplateDTO):Observable<TemplateDTO>{
-    return this.http.post<TemplateDTO>(`${this.endpoint}`,template)
+    return this.http.post<TemplateDTO>(`${this.endpoint}Template`,template)
   }
-  createPDF(pdf:PDF):Observable<string>{//ToDo
-    return this.http.post<string>(`${this.endpoint}/CreatePDF`,pdf)
+  createPDF(pdf:PDF):Observable<boolean>{//ToDo
+    return this.http.post<boolean>(`${this.endpoint}Template/CreatePDF`,pdf)
   }
   updateTemplate(template:TemplateDTO):Observable<TemplateDTO>{
-    return this.http.put<TemplateDTO>(`${this.endpoint}`,template)
+    return this.http.put<TemplateDTO>(`${this.endpoint}Template`,template)
   }
-  deleteTemplate(id:number):Observable<TemplateDTO>{
-    return this.http.delete<TemplateDTO>(`${this.endpoint}/${id}`)
+  deleteTemplate(id: number): Observable<TemplateDTO> {
+    return this.http.delete<TemplateDTO>(`${this.endpoint}Template?id=${id}`);
+  }
+  checkIfPathExists(pathToCheck: string): Observable<boolean> {
+    const url = `${this.endpoint}/check-path-exists?pathToCheck=${encodeURIComponent(pathToCheck)}`;
+    return this.http.get<boolean>(url);
   }
 }

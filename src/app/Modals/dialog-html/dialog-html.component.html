@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Generar PDF</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formHTML">
+        <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Recipient</mat-label>
+                    <input matInput formControlName="Recipient" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Desired Position</mat-label>
+                    <input matInput formControlName="DesiredPosition" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Your Name</mat-label>
+                    <input matInput formControlName="YourName" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Output Path</mat-label>
+                    <input matInput formControlName="OutputPath" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Relevant Areas</mat-label>
+                    <input matInput formControlName="RelevantAreas" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="input-container">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Skills</mat-label>
+                        <input matInput formControlName="Skills" autocomplete="off">
+                    </mat-form-field>
+                    <p class="info-text">**Skills separadas por comas y espacio**</p>
+                </div>
+            </mat-grid-tile>                     
+        </mat-grid-list>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cerrar</button>
+    <button mat-button (click)="CreatePDF()" [disabled]="formHTML.invalid">Crear PDF</button>
+</div>
