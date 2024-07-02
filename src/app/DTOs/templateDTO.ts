@@ -1,5 +1,5 @@
 export interface TemplateDTO {
-    Id: number,
-    Name: string;
-    Content: string;
+    id: number,
+    name: string;
+    content: string;
 }

@@ -20,7 +20,7 @@ export class TemplateService {
   createTemplate(template:TemplateDTO):Observable<TemplateDTO>{
     return this.http.post<TemplateDTO>(`${this.endpoint}Template`,template)
   }
-  createPDF(pdf:PDF):Observable<boolean>{//ToDo
+  createPDF(pdf:PDF):Observable<boolean>{
     return this.http.post<boolean>(`${this.endpoint}Template/CreatePDF`,pdf)
   }
   updateTemplate(template:TemplateDTO):Observable<TemplateDTO>{

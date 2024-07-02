@@ -66,16 +66,20 @@ export class DialogAddEditComponent implements OnInit {
   }
 
   addEditTemplate() {
-    const idValue = this.formTemplate.value.id > 0 ? this.formTemplate.value.id : 0;
+    let idValue = 0;
+    if(!this.formTemplate.value.id != null)
+      {
+        idValue = this.formTemplate.value.id > 0 ? this.formTemplate.value.id : 0;
+
+      }
 
     const model: TemplateDTO = {
-      Id: idValue,
-      Name: this.formTemplate.value.name,
-      Content: this.formTemplate.value.content,
+      id: idValue,
+      name: this.formTemplate.value.name,
+      content: this.formTemplate.value.content,
     };
 
-
-    if (this.dataTemplate.id == null) {
+    if (idValue == 0) {
       this.templateService.createTemplate(model).subscribe({
         next: (data) => {
           this.alert("Template creado", "Listo");
